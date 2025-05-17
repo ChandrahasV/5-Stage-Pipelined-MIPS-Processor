@@ -22,7 +22,7 @@ To support pipelining, four intermediate pipeline registers are implemented:
 The design includes a **Forwarding Unit** to resolve data hazards by bypassing data between pipeline stages, and a **Stalling Mechanism** to pause the pipeline in cases where data dependencies cannot be resolved immediately.
 
 <p align="center">
-  <img src="Src/Architecture.png" alt="Architecture">
+  <img src="src/ComparchProject_page-0001.jpg" alt="Architecture">
 </p>
 
 ## Supported Instructions
