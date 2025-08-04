@@ -97,12 +97,21 @@ The design includes a **Forwarding Unit** to resolve data hazards by bypassing d
   [20:16] rt (destinationReg)  
   [15:0]  imm (offset)  
   ```
----
 
 **Note**: Memory operations use byte-addressable data memory. A 32-bit word is stored using 4 consecutive memory locations in **big-endian** order.
 
----
+## Control Signals
 
+| **Instructions** | **Mem\_Read** | **PC\_MUX** | **WE\_REGfile** | **WE\_DataMem** | **ALU\_Control\[1:0]** | **WB\_MUX** |
+| ---------------- | ------------- | ----------- | --------------- | --------------- | ---------------------- | ----------- |
+| `lw`             | 1             | 0           | 1               | 0               | 00                     | 0           |
+| `sw`             | 0             | 0           | 0               | 1               | 00                     | X           |
+| `j`              | 0             | 1           | 0               | 0               | XX                     | X           |
+| `xori`           | 0             | 0           | 1               | 0               | 01                     | 1           |
+| `ori`            | 0             | 0           | 1               | 0               | 10                     | 1           |
+| `addi`           | 0             | 0           | 1               | 0               | 00                     | 1           |
+
+---
 ## License
 
 This project is for educational purposes. Do not plagiarize.
